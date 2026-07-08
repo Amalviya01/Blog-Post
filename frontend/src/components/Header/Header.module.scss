@@ -1,0 +1,67 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.header {
+  padding: v.$space-4 v.$space-5 0;
+}
+
+.bar {
+  @include m.container;
+  display: flex;
+  align-items: center;
+  gap: v.$space-5;
+  background: v.$color-surface;
+  border: 1px solid v.$color-border;
+  border-radius: 999px;
+  padding: v.$space-3 v.$space-3 v.$space-3 v.$space-5;
+
+  @include m.mobile {
+    flex-wrap: wrap;
+    border-radius: v.$radius-lg;
+  }
+}
+
+.search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: v.$color-bg-muted;
+  border-radius: 999px;
+  padding: v.$space-2 v.$space-4;
+  gap: v.$space-2;
+
+  input {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 14px;
+    color: v.$color-text;
+
+    &::placeholder {
+      color: v.$color-text-muted;
+    }
+  }
+
+  button {
+    @include m.button-reset;
+    display: flex;
+    color: v.$color-text-muted;
+  }
+}
+
+.createButton {
+  @include m.button-reset;
+  flex-shrink: 0;
+  background: v.$color-ink;
+  color: #fff;
+  padding: v.$space-3 v.$space-5;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  &:hover {
+    background: v.$color-accent;
+  }
+}

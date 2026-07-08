@@ -1,0 +1,53 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.card {
+  @include m.card;
+  padding: v.$space-4 v.$space-5;
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-2;
+}
+
+.category {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: v.$color-accent;
+  background: rgba(59, 91, 253, 0.1);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  a {
+    color: v.$color-ink;
+
+    &:hover {
+      color: v.$color-accent;
+    }
+  }
+}
+
+.divider {
+  height: 1px;
+  background: v.$color-border;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: v.$space-2;
+  font-size: 12px;
+  color: v.$color-text-muted;
+}
+
+.dot {
+  opacity: 0.5;
+}

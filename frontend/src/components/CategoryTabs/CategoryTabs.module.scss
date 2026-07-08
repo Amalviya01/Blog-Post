@@ -1,0 +1,30 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$space-2;
+
+  button {
+    @include m.button-reset;
+    padding: v.$space-2 v.$space-4;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    background: v.$color-surface;
+    border: 1px solid v.$color-border;
+    color: v.$color-text-muted;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: v.$color-ink;
+    }
+  }
+}
+
+.active {
+  background: v.$color-ink !important;
+  border-color: v.$color-ink !important;
+  color: #fff !important;
+}

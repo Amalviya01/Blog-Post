@@ -1,0 +1,104 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.wrap {
+  @include m.container;
+  padding-top: v.$space-5;
+}
+
+.hero {
+  position: relative;
+  background-color: v.$color-hero-bg;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: v.$space-8 v.$space-6;
+  display: flex;
+  align-items: flex-end;
+  min-height: 360px;
+  border-radius: v.$radius-lg;
+  overflow: hidden;
+
+  @include m.mobile {
+    min-height: 280px;
+    padding: v.$space-6 v.$space-4;
+    border-radius: v.$radius-md;
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-3;
+}
+
+.badge {
+  align-self: flex-start;
+  background: v.$color-accent;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.15;
+  max-width: 720px;
+
+  @include m.mobile {
+    font-size: 26px;
+  }
+
+  a {
+    color: #fff;
+  }
+}
+
+.excerpt {
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: v.$space-2;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.avatar,
+.avatarFallback {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatarFallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: v.$color-accent;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dot {
+  opacity: 0.6;
+}

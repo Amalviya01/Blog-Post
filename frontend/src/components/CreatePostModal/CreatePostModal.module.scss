@@ -1,0 +1,303 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: v.$space-7 v.$space-4;
+  overflow-y: auto;
+  z-index: 200;
+}
+
+.modal {
+  background: #fff;
+  border-radius: v.$radius-lg;
+  width: 100%;
+  max-width: 620px;
+  padding: v.$space-6;
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-4;
+
+  @include m.mobile {
+    padding: v.$space-4;
+  }
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: v.$space-3;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 800;
+  }
+}
+
+.headActions {
+  display: flex;
+  align-items: center;
+  gap: v.$space-2;
+  flex-shrink: 0;
+}
+
+.previewButton {
+  @include m.button-reset;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: v.$color-ink;
+  color: #fff;
+  padding: v.$space-2 v.$space-4;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+
+  &:hover {
+    background: v.$color-accent;
+  }
+}
+
+.closeButton {
+  @include m.button-reset;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: v.$color-text-muted;
+  font-size: 14px;
+
+  &:hover {
+    background: v.$color-bg-muted;
+    color: v.$color-text;
+  }
+}
+
+.error {
+  background: #fdecec;
+  color: #c0392b;
+  border: 1px solid #f3b9b4;
+  border-radius: v.$radius-sm;
+  padding: v.$space-3 v.$space-4;
+  font-size: 13.5px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-2;
+  flex: 1;
+
+  label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: v.$color-text;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  select,
+  textarea {
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-sm;
+    padding: v.$space-3 v.$space-4;
+    font-size: 14px;
+    font-family: inherit;
+    color: v.$color-text;
+    outline: none;
+    background: v.$color-bg-muted;
+    resize: vertical;
+
+    &:focus {
+      border-color: v.$color-accent;
+    }
+
+    &::placeholder {
+      color: v.$color-text-muted;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  gap: v.$space-4;
+
+  @include m.mobile {
+    flex-direction: column;
+  }
+}
+
+.slugPreview {
+  font-size: 12.5px;
+  color: v.$color-text-muted;
+  background: v.$color-bg-muted;
+  padding: v.$space-2 v.$space-3;
+  border-radius: v.$radius-sm;
+}
+
+.contentArea {
+  border-radius: 0 0 v.$radius-sm v.$radius-sm !important;
+  border-top: none !important;
+}
+
+.sectionTitle {
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: v.$space-2;
+}
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+  border: 1.5px dashed v.$color-border;
+  border-radius: v.$radius-md;
+  padding: v.$space-5;
+  cursor: pointer;
+  color: v.$color-text-muted;
+  font-size: 12.5px;
+  min-height: 120px;
+
+  strong {
+    color: v.$color-text;
+    font-size: 14px;
+    margin-top: v.$space-2;
+  }
+
+  &:hover {
+    border-color: v.$color-accent;
+  }
+}
+
+.dropzoneIcon {
+  font-size: 20px;
+  color: v.$color-accent;
+}
+
+.dropzonePreview {
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: v.$radius-sm;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$space-2;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    background: v.$color-bg-muted;
+    border: 1px solid v.$color-border;
+    padding: 4px 6px 4px 12px;
+    border-radius: 999px;
+    color: v.$color-text;
+  }
+
+  button {
+    @include m.button-reset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    color: v.$color-text-muted;
+
+    &:hover {
+      background: v.$color-border;
+    }
+  }
+}
+
+.continueButton {
+  @include m.button-reset;
+  background: v.$color-ink;
+  color: #fff;
+  padding: v.$space-4;
+  border-radius: v.$radius-sm;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  margin-top: v.$space-2;
+
+  &:hover:not(:disabled) {
+    background: v.$color-accent;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.previewOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.65);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: v.$space-7 v.$space-4;
+  overflow-y: auto;
+  z-index: 300;
+}
+
+.previewModal {
+  position: relative;
+  background: #fff;
+  border-radius: v.$radius-lg;
+  max-width: 640px;
+  width: 100%;
+  padding: v.$space-7;
+
+  h1 {
+    font-size: 26px;
+    font-weight: 800;
+    margin: v.$space-4 0;
+  }
+}
+
+.previewClose {
+  @include m.button-reset;
+  position: absolute;
+  top: v.$space-4;
+  right: v.$space-4;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: v.$color-bg-muted;
+
+  &:hover {
+    background: v.$color-border;
+  }
+}
+
+.previewCover {
+  width: 100%;
+  border-radius: v.$radius-md;
+}
+
+.previewContent {
+  font-size: 15px;
+  line-height: 1.75;
+  color: v.$color-text;
+}

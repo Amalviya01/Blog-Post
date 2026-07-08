@@ -1,0 +1,73 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: v.$space-5;
+  flex-wrap: wrap;
+}
+
+.left {
+  h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 6px 0;
+  }
+
+  p {
+    color: v.$color-text-muted;
+    font-size: 14px;
+    max-width: 420px;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: v.$color-accent;
+  background: rgba(59, 91, 253, 0.1);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: v.$space-4;
+  flex-wrap: wrap;
+}
+
+.arrows {
+  display: flex;
+  gap: v.$space-2;
+
+  button {
+    @include m.button-reset;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid v.$color-border;
+    background: v.$color-surface;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: v.$color-text;
+
+    &:hover:not(:disabled) {
+      background: v.$color-ink;
+      color: #fff;
+      border-color: v.$color-ink;
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+  }
+}

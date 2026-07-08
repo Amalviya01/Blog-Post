@@ -1,0 +1,61 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.main {
+  @include m.container;
+  flex: 1;
+  padding-block: v.$space-6 v.$space-8;
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-6;
+}
+
+.status {
+  text-align: center;
+  color: v.$color-text-muted;
+  padding: v.$space-7 0;
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: v.$space-5;
+
+  @include m.mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.miniRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: v.$space-4;
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.newsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: v.$space-4;
+
+  @include m.mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: v.$space-5;
+
+  @include m.tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.mobile {
+    grid-template-columns: 1fr;
+  }
+}

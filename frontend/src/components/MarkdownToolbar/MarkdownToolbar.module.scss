@@ -1,0 +1,50 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: v.$space-2 v.$space-3;
+  background: v.$color-bg-muted;
+  border: 1px solid v.$color-border;
+  border-bottom: none;
+  border-radius: v.$radius-sm v.$radius-sm 0 0;
+
+  button {
+    @include m.button-reset;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: v.$radius-sm;
+    color: v.$color-text;
+
+    svg {
+      display: block;
+    }
+
+    strong,
+    em {
+      display: block;
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    &:hover {
+      background: v.$color-border;
+    }
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  background: v.$color-border;
+  margin-inline: v.$space-2;
+}
+
+.spacer {
+  flex: 1;
+}

@@ -1,0 +1,28 @@
+@use "../../styles/variables" as v;
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: v.$color-ink;
+}
+
+.mark {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.word {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+
+  strong {
+    font-weight: 800;
+  }
+}
+
+.light {
+  color: #fff;
+}

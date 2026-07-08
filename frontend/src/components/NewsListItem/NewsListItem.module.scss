@@ -1,0 +1,79 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.item {
+  @include m.card;
+  display: flex;
+  gap: v.$space-3;
+  padding: v.$space-4;
+}
+
+.thumb {
+  flex-shrink: 0;
+  width: 72px;
+  height: 60px;
+  border-radius: v.$radius-sm;
+  overflow: hidden;
+  background: v.$color-bg-muted;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.thumbFallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, v.$color-accent, v.$color-ink);
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+
+  h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 4px;
+
+    a {
+      color: v.$color-ink;
+
+      &:hover {
+        color: v.$color-accent;
+      }
+    }
+  }
+
+  p {
+    font-size: 12px;
+    color: v.$color-text-muted;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: v.$space-2;
+  margin-top: 4px;
+}
+
+.category {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: v.$color-accent;
+}
+
+.time {
+  font-size: 11px;
+  color: v.$color-text-muted;
+}

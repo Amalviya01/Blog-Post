@@ -1,0 +1,44 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-2;
+  flex-wrap: wrap;
+
+  button {
+    @include m.button-reset;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 v.$space-3;
+    border-radius: v.$radius-sm;
+    border: 1px solid v.$color-border;
+    background: v.$color-surface;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: v.$color-text;
+
+    &:hover:not(:disabled) {
+      border-color: v.$color-accent;
+      color: v.$color-accent;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.active {
+  background: v.$color-ink !important;
+  border-color: v.$color-ink !important;
+  color: #fff !important;
+}
+
+.ellipsis {
+  color: v.$color-text-muted;
+  padding: 0 v.$space-1;
+}
