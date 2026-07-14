@@ -85,6 +85,16 @@ export const resolvers = {
       return existing.save();
     },
 
+    incrementPostViews: async (_, { slug }) => {
+      const post = await Post.findOneAndUpdate(
+        { slug },
+        { $inc: { viewCount: 1 } },
+        { new: true }
+      );
+      if (!post) throw badInput("Post not found.");
+      return post;
+    },
+
     deletePost: async (_, { id }) => {
       const result = await Post.findByIdAndDelete(id);
       return Boolean(result);
@@ -93,6 +103,7 @@ export const resolvers = {
 
   Post: {
     id: (post) => post._id.toString(),
+    viewCount: (post) => post.viewCount || 0,
     publishedAt: (post) => post.publishedAt.toISOString(),
     createdAt: (post) => post.createdAt.toISOString(),
     updatedAt: (post) => post.updatedAt.toISOString(),

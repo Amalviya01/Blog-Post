@@ -3,12 +3,18 @@ import { formatDate } from "../../utils/formatDate.js";
 import { estimateReadTime } from "../../utils/estimateReadTime.js";
 import styles from "./MiniPostCard.module.scss";
 
-export default function MiniPostCard({ post }) {
+export default function MiniPostCard({ post, onSelect }) {
   return (
     <article className={styles.card}>
       {post.category && <span className={styles.category}>{post.category}</span>}
       <h4 className={styles.title}>
-        <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+        {onSelect ? (
+          <button type="button" className={styles.linkButton} onClick={() => onSelect(post.slug)}>
+            {post.title}
+          </button>
+        ) : (
+          <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+        )}
       </h4>
       <div className={styles.divider} />
       <div className={styles.meta}>

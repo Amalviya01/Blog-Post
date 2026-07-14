@@ -2,16 +2,26 @@ import { Link } from "react-router-dom";
 import { estimateReadTime } from "../../utils/estimateReadTime.js";
 import styles from "./FeaturedGridCard.module.scss";
 
-export default function FeaturedGridCard({ post, variant = "image" }) {
+export default function FeaturedGridCard({ post, variant = "image", onSelect }) {
   return (
     <article className={`${styles.card} ${variant === "dark" ? styles.dark : ""}`}>
-      <Link to={`/blog/${post.slug}`} className={styles.media}>
-        {post.coverImage ? (
-          <img src={post.coverImage} alt={post.title} />
-        ) : (
-          <div className={styles.mediaFallback} />
-        )}
-      </Link>
+      {onSelect ? (
+        <button type="button" className={styles.media} onClick={() => onSelect(post.slug)}>
+          {post.coverImage ? (
+            <img src={post.coverImage} alt={post.title} />
+          ) : (
+            <div className={styles.mediaFallback} />
+          )}
+        </button>
+      ) : (
+        <Link to={`/blog/${post.slug}`} className={styles.media}>
+          {post.coverImage ? (
+            <img src={post.coverImage} alt={post.title} />
+          ) : (
+            <div className={styles.mediaFallback} />
+          )}
+        </Link>
+      )}
 
       <div className={styles.body}>
         <div className={styles.meta}>
@@ -28,7 +38,13 @@ export default function FeaturedGridCard({ post, variant = "image" }) {
         </div>
 
         <h3 className={styles.title}>
-          <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+          {onSelect ? (
+            <button type="button" className={styles.titleButton} onClick={() => onSelect(post.slug)}>
+              {post.title}
+            </button>
+          ) : (
+            <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+          )}
         </h3>
         {post.excerpt && <p className={styles.excerpt}>{post.excerpt}</p>}
       </div>

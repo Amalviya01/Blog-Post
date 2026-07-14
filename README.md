@@ -48,7 +48,7 @@ Start MongoDB locally (or point `MONGO_URI` at an Atlas cluster), then:
 npm run dev
 ```
 
-Server runs at `http://localhost:4000/graphql` (Apollo Sandbox in the browser) with uploads served from `http://localhost:4000/uploads`.
+Server runs at `http://localhost:5000/graphql` (Apollo Sandbox in the browser) with uploads served from `http://localhost:5000/uploads`.
 
 ### 2. Frontend
 
@@ -89,7 +89,7 @@ mutation {
 
 ## Image upload
 
-`POST /upload` (multipart, field name `image`, PNG/JPEG, max 5MB) → `{ "url": "http://localhost:4000/uploads/<file>" }`. The frontend uploads the file here first, then passes the returned URL as `coverImage` in the `addPost`/`updatePost` mutation.
+`POST /upload` (multipart, field name `image`, PNG/JPEG, max 5MB) → `{ "url": "http://localhost:5000/uploads/<file>" }`. The frontend uploads the file here first, then passes the returned URL as `coverImage` in the `addPost`/`updatePost` mutation.
 
 ## Demo
 \blog-graphql\Demo\Blog-post.mp4 

@@ -25,13 +25,24 @@
   font-size: 15px;
   font-weight: 700;
   line-height: 1.4;
+}
 
-  a {
-    color: v.$color-ink;
+.linkButton {
+  all: unset;
+  font: inherit;
+  color: v.$color-ink;
+  cursor: pointer;
+}
 
-    &:hover {
-      color: v.$color-accent;
-    }
+.linkButton:hover {
+  color: v.$color-accent;
+}
+
+.title a {
+  color: v.$color-ink;
+
+  &:hover {
+    color: v.$color-accent;
   }
 }
 
