@@ -92,4 +92,15 @@ mutation {
 `POST /upload` (multipart, field name `image`, PNG/JPEG, max 5MB) → `{ "url": "http://localhost:5000/uploads/<file>" }`. The frontend uploads the file here first, then passes the returned URL as `coverImage` in the `addPost`/`updatePost` mutation.
 
 ## Demo
-\blog-graphql\Demo\Blog-post.mp4 
+
+### Video walkthrough
+
+[▶️ Watch the demo (Blog-post.mp4)](Demo/Blog-post.mp4)
+
+https://github.com/Amalviya01/Blog-Post/raw/final-submission/Demo/Blog-post.mp4
+
+### Screenshots
+
+![Home page](Demo/page-1.png)
+
+![Post detail / create](Demo/page-2.png)
