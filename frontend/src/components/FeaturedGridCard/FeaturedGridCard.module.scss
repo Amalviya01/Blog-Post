@@ -12,12 +12,28 @@
   display: block;
   aspect-ratio: 16 / 10;
   background: v.$color-bg-muted;
+  border: none;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+}
+
+.titleButton {
+  all: unset;
+  font: inherit;
+  cursor: pointer;
+  color: v.$color-ink;
+}
+
+.titleButton:hover {
+  color: v.$color-accent;
 }
 
 .mediaFallback {

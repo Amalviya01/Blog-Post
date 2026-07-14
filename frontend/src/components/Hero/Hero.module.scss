@@ -67,6 +67,18 @@
   }
 }
 
+.linkButton {
+  all: unset;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+}
+
+.linkButton:hover {
+  text-decoration: underline;
+}
+
 .excerpt {
   max-width: 620px;
   color: rgba(255, 255, 255, 0.8);

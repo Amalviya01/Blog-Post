@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { formatDate } from "../../utils/formatDate.js";
 import styles from "./Hero.module.scss";
 
-export default function Hero({ post }) {
+export default function Hero({ post, onSelect }) {
   if (!post) return null;
 
   return (
@@ -15,7 +15,13 @@ export default function Hero({ post }) {
         <div className={styles.content}>
           {post.category && <span className={styles.badge}>{post.category}</span>}
           <h1 className={styles.title}>
-            <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+            {onSelect ? (
+              <button type="button" className={styles.linkButton} onClick={() => onSelect(post.slug)}>
+                {post.title}
+              </button>
+            ) : (
+              <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+            )}
           </h1>
           {post.excerpt && <p className={styles.excerpt}>{post.excerpt}</p>}
           <div className={styles.meta}>

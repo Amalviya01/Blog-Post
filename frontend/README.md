@@ -8,4 +8,4 @@ cp .env.example .env
 npm run dev
 ```
 
-Runs at `http://localhost:3000`, expects the GraphQL backend at `http://localhost:4000`.
+Runs at `http://localhost:3000`, expects the GraphQL backend at `http://localhost:5000`.

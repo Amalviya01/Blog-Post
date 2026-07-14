@@ -15,6 +15,7 @@ export const typeDefs = `#graphql
     tags: [String!]!
     author: Author!
     status: String!
+    viewCount: Int!
     publishedAt: String!
     createdAt: String!
     updatedAt: String!
@@ -56,5 +57,6 @@ export const typeDefs = `#graphql
     addPost(input: PostInput!): Post!
     updatePost(id: ID!, input: PostInput!): Post!
     deletePost(id: ID!): Boolean!
+    incrementPostViews(slug: String!): Post!
   }
 `;

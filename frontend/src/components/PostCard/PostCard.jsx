@@ -2,22 +2,38 @@ import { Link } from "react-router-dom";
 import { formatDate } from "../../utils/formatDate.js";
 import styles from "./PostCard.module.scss";
 
-export default function PostCard({ post }) {
+export default function PostCard({ post, onSelect }) {
   return (
     <article className={styles.card}>
-      <Link to={`/blog/${post.slug}`} className={styles.thumbLink}>
-        {post.coverImage ? (
-          <img src={post.coverImage} alt={post.title} className={styles.thumb} />
-        ) : (
-          <div className={styles.thumbFallback} />
-        )}
-      </Link>
+      {onSelect ? (
+        <button type="button" className={styles.thumbLink} onClick={() => onSelect(post.slug)}>
+          {post.coverImage ? (
+            <img src={post.coverImage} alt={post.title} className={styles.thumb} />
+          ) : (
+            <div className={styles.thumbFallback} />
+          )}
+        </button>
+      ) : (
+        <Link to={`/blog/${post.slug}`} className={styles.thumbLink}>
+          {post.coverImage ? (
+            <img src={post.coverImage} alt={post.title} className={styles.thumb} />
+          ) : (
+            <div className={styles.thumbFallback} />
+          )}
+        </Link>
+      )}
 
       <div className={styles.body}>
         {post.category && <span className={styles.category}>{post.category}</span>}
 
         <h3 className={styles.title}>
-          <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+          {onSelect ? (
+            <button type="button" className={styles.titleButton} onClick={() => onSelect(post.slug)}>
+              {post.title}
+            </button>
+          ) : (
+            <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+          )}
         </h3>
 
         {post.excerpt && <p className={styles.excerpt}>{post.excerpt}</p>}

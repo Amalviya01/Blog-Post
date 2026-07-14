@@ -20,6 +20,7 @@ const postSchema = new mongoose.Schema(
     author: { type: authorSchema, required: true },
     status: { type: String, enum: ["draft", "published"], default: "published" },
     publishedAt: { type: Date, default: Date.now },
+    viewCount: { type: Number, default: 0 },
   },
   { timestamps: true }
 );

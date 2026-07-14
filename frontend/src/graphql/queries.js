@@ -47,6 +47,7 @@ export const GET_POST = gql`
         name
         avatar
       }
+      viewCount
       publishedAt
     }
   }

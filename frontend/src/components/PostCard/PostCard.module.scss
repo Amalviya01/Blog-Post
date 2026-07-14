@@ -14,6 +14,31 @@
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: v.$color-bg-muted;
+  border: none;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.titleButton,
+.thumbLink {
+  background: none;
+}
+
+.titleButton {
+  font: inherit;
+  color: v.$color-ink;
+  text-align: left;
+  border: none;
+  padding: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.titleButton:hover,
+.thumbLink:hover {
+  text-decoration: none;
 }
 
 .thumb {
